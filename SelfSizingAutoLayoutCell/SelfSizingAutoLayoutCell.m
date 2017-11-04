@@ -47,7 +47,9 @@ NS_ASSUME_NONNULL_BEGIN
     [constraints addObject:[autolayoutView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:10.0]];
     [constraints addObject:[autolayoutView.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:10.0]];
     [constraints addObject:[self.contentView.trailingAnchor constraintEqualToAnchor:autolayoutView.trailingAnchor constant:10.0]];
-    [constraints addObject:[self.contentView.bottomAnchor constraintEqualToAnchor:autolayoutView.bottomAnchor constant:10.0]];
+    __auto_type bottomConstraint = [self.contentView.bottomAnchor constraintEqualToAnchor:autolayoutView.bottomAnchor constant:10.0];
+    bottomConstraint.priority = UILayoutPriorityDefaultHigh;
+    [constraints addObject:bottomConstraint];
 
     [NSLayoutConstraint activateConstraints:constraints];
 }
