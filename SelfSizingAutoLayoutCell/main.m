@@ -6,11 +6,16 @@
 //  Copyright © 2017 Yoshimasa Niwa. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-int main(int argc, char * argv[]) {
+@import UIKit;
+
+NS_ASSUME_NONNULL_BEGIN
+
+int main(int argc, char * _Nullable argv[]) {
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }
+
+NS_ASSUME_NONNULL_END

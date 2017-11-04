@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        [self _myView_initialize];
+        [self _autoLayoutView_initialize];
     }
     return self;
 }
@@ -31,12 +31,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
-        [self _myView_initialize];
+        [self _autoLayoutView_initialize];
     }
     return self;
 }
 
-- (void)_myView_initialize
+- (void)_autoLayoutView_initialize
 {
     NSMutableArray<NSLayoutConstraint *> * const constraints = [[NSMutableArray alloc] init];
 

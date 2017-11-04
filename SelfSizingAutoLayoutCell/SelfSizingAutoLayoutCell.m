@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        [self _tableViewCell_initialize];
+        [self _selfSizingAutoLayoutCell_initialize];
     }
     return self;
 }
@@ -30,12 +30,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
-        [self _tableViewCell_initialize];
+        [self _selfSizingAutoLayoutCell_initialize];
     }
     return self;
 }
 
-- (void)_tableViewCell_initialize
+- (void)_selfSizingAutoLayoutCell_initialize
 {
     NSMutableArray<NSLayoutConstraint *> * const constraints = [[NSMutableArray alloc] init];
 
