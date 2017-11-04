@@ -10,10 +10,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface SpacerView: UIView
+
+@end
+
+@implementation SpacerView
+
+- (CGSize)intrinsicContentSize
+{
+    return CGSizeMake(UIViewNoIntrinsicMetric, 10);
+}
+
+@end
+
 @interface AutoLayoutView ()
 
 @property (nonatomic, readonly) UIStackView *stackView;
 @property (nonatomic, readonly) UILabel *firstLabel;
+@property (nonatomic, readonly) SpacerView *spacerView;
 @property (nonatomic, readonly) UILabel *secondLabel;
 
 @end
@@ -43,7 +57,6 @@ NS_ASSUME_NONNULL_BEGIN
     UIStackView * const stackView = [[UIStackView alloc] init];
     stackView.translatesAutoresizingMaskIntoConstraints = NO;
     stackView.axis = UILayoutConstraintAxisVertical;
-    stackView.spacing = 10.0;
     [stackView setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
     [stackView setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
     [stackView setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
@@ -64,6 +77,11 @@ NS_ASSUME_NONNULL_BEGIN
     [firstLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
     [stackView addArrangedSubview:firstLabel];
     _firstLabel = firstLabel;
+
+    SpacerView *spacerView = [[SpacerView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    spacerView.translatesAutoresizingMaskIntoConstraints = NO;
+    [stackView addArrangedSubview:spacerView];
+    _spacerView = spacerView;
 
     UILabel * const secondLabel = [[UILabel alloc] init];
     secondLabel.numberOfLines = 0;
@@ -93,6 +111,7 @@ NS_ASSUME_NONNULL_BEGIN
 {
     self.firstLabel.hidden = (self.index % 2 == 0);
     self.secondLabel.hidden = (self.index % 3 == 0);
+    self.spacerView.hidden = self.firstLabel.hidden || self.secondLabel.hidden;
 
     self.firstLabel.text = [NSString stringWithFormat:@"%tu: Meow Meow Meow", self.index];
 }
