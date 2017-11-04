@@ -1,7 +1,7 @@
 Self-sizing auto-layout cell difficulties
 =========================================
 
-This is an example application that describes how using self-sizing auto-lahyout cell is difficult.
+This is an example application that describes how using self-sizing auto-layout cell is difficult.
 
 It is very unclear and not documented at all in any Apple's documentation or header files, looks like `UITableViewCell` caches cell size if it is self-sizing auto-layout cell. After `UITableView` calls `prepareForReuse`, but the cell height remains the previous value and it ends up with broken layout due to unexpected cell size that breaks auto-layout constraints.
 
