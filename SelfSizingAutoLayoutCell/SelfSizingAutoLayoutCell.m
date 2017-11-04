@@ -55,6 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setIndex:(NSUInteger)index
 {
     self.autolayoutView.index = index;
+    [self.autolayoutView layoutIfNeeded];
 }
 
 - (NSUInteger)index
