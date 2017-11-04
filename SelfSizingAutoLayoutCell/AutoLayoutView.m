@@ -114,6 +114,8 @@ NS_ASSUME_NONNULL_BEGIN
     self.spacerView.hidden = self.firstLabel.hidden || self.secondLabel.hidden;
 
     self.firstLabel.text = [NSString stringWithFormat:@"%tu: Meow Meow Meow", self.index];
+    [self.secondLabel setNeedsLayout];
+    [self.secondLabel layoutIfNeeded];
 }
 
 @end
