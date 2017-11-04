@@ -65,13 +65,6 @@ NS_ASSUME_NONNULL_BEGIN
     return self.autolayoutView.index;
 }
 
-- (void)prepareForReuse
-{
-    [super prepareForReuse];
-
-    self.index = 0;
-}
-
 @end
 
 NS_ASSUME_NONNULL_END
